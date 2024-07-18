@@ -1,0 +1,25 @@
+.card-item {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 12px;
+}
+
+.border {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.img-pro {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: rgb(0, 255, 55);
+  padding: auto;
+}

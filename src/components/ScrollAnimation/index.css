@@ -1,0 +1,31 @@
+.scroll-text {
+  display: flex;
+  align-self: center;
+  gap: 22px;
+  background-color: rgb(4, 189, 87);
+
+  padding-left: 12px;
+  border-radius: 5;
+  margin-bottom: 18px;
+}
+@media screen and (min-width: 600px) {
+  .scroll-text {
+    align-self: center;
+  }
+}
+.scroll-text li {
+  color: white;
+  font-family: "poppins";
+  flex-shrink: 0;
+  padding: 2;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    text-transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
