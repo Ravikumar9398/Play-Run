@@ -1,64 +1,67 @@
-import React, { useState } from "react";
-import ProductsListContext from "../../context/ProductListContext.js";
-import Header from "../Header";
+import React, { useEffect, useState } from "react";
 
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import axios from "axios";
 import "./index.css";
-import ProductsCard from "../ProductsCard";
-import ProductsItem from "../ProductsItem";
-import Navbar from "../Navbar/index.jsx";
-import ScrollAnimation from "../ScrollAnimation/index.jsx";
-const Home = () => {
-  const [changeId, setChangeId] = useState("");
-  const settings = {
-    dots: true,
 
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-  };
+import Header from "../Header";
+import ProductsCard from "../ProductsCard";
+import Navbar from "../Navbar/index.jsx";
+import Banners from "../Banners/index.jsx";
+import SpecialOfferSection from "../SpecialOfferSection/index.jsx";
+import SubscribeNote from "../SubscribeNote/SubscribeNote.jsx";
+import SpecialSales from "../SpecialSales/SpecialSlaes.jsx";
+
+const Home = () => {
+  const [productsList, setProductList] = useState([]);
+
+  useEffect(() => {
+    const renderProductsList = async () => {
+      const url = "https://playrun-product-api.vercel.app/api/products";
+
+      const response = await axios.get(url);
+      const data = response.data;
+      const products = data.products;
+
+      if (data.success === true) {
+        setProductList(products);
+      } else {
+        console.log(data.message);
+      }
+    };
+    renderProductsList();
+  }, []);
 
   return (
-    <ProductsListContext.Consumer>
-      {(value) => {
-        const { listItems, activeId } = value;
-        console.log(activeId);
-        const item = listItems.filter((each) => each.id === activeId);
-
-        return (
-          <div
-            className="w-screen h-full   flex flex-col items-center 
+    <main
+      className="w-screen h-full   flex flex-col items-center 
         justify-items-center  pb-2"
-          >
-            <Header />
-
-            <div
-              className="w-full p-4 md:p-0 md:w-[80%] h-full flex flex-col items-center 
+    >
+      <Header />
+      <Banners />
+      <SpecialSales />
+      <SpecialOfferSection />
+      <section
+        className="w-full p-4 md:p-0 md:w-[80%] h-full flex flex-col items-center 
           justify-items-center gap-5 "
-            >
-              <ProductsItem itemDetails={item} key={item.id} />
-
-              <ul
-                className="w-[95%] h-full rounded-xl 
-                flex flex-row items-center justify-items-center "
-              >
-                <Slider {...settings} className="w-full">
-                  {listItems.map((each) => (
-                    <ProductsCard itemsList={each} key={each.id} />
-                  ))}
-                </Slider>
-              </ul>
-            </div>
-            <div className="w-full mt-5">
-              <Navbar />
-            </div>
-          </div>
-        );
-      }}
-    </ProductsListContext.Consumer>
+      >
+        <ul
+          id="products"
+          className="w-full h-full rounded-xl 
+                flex flex-col md:flex-row items-center justify-items-center 
+                flex-wrap gap-3  "
+        >
+          {productsList.map((each) => (
+            <ProductsCard itemsList={each} key={each._id} />
+          ))}
+          <SubscribeNote />
+        </ul>
+      </section>
+      <footer id="footer" className="w-full mt-5">
+        <Navbar />
+      </footer>
+    </main>
   );
 };
 

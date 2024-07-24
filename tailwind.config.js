@@ -7,6 +7,9 @@ module.exports = {
         roboto: ["Roboto Condensed", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
       },
+      backgroundImage: {
+        "banner-bg-1": "url('../../images/banner-bg-1.jpg')",
+      },
     },
   },
   plugins: [],
