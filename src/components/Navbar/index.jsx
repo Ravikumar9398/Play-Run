@@ -12,8 +12,11 @@ const Navbar = () => {
         <div className="flex flex-col ">
           <p className="text-white font-roboto"> Manufactured by :</p>
           <h1 className="text-white font-poppins text-lg">
-            VIJAYA LAKSHMI READYMADE AND INNER ZONE BSNL Office Road
-            Narasaraopet, Guntur D.T AndhraPradesh{" "}
+            PLAYRUN GARMENTS #2-15-57/2 Rajagarikota BSNL Office
+            <br />{" "}
+            <span className="text-white font-poppins text-lg">
+              Narasaraopet - 522601
+            </span>
           </h1>
         </div>
 

@@ -5,16 +5,19 @@ const ProductsCard = (props) => {
   const { itemsList, selectProduct } = props;
 
   const { _id, imageUrl, title, price } = itemsList;
-
+  const url = `https://playrun-product-api.onrender.com${imageUrl}`;
+  console.log(url);
+  console.log(imageUrl);
   const onClickProduct = () => {
     selectProduct(_id);
   };
+
   return (
     <a href={`/product/${_id}`}>
       <li
-        className="min-w-[345px] h-full rounded-t-xl 
+        className="min-w-[345px] h-full rounded-xl 
     flex flex-col items-center justify-items-center gap-2 
-    shadow-xl border-2 p-2 flex-shrink-1 flex-grow-1"
+    shadow-xl border-2 p-2 flex-shrink-1 flex-grow-1 pt-4"
       >
         <button
           type="button"
@@ -22,7 +25,7 @@ const ProductsCard = (props) => {
           onClick={onClickProduct}
         >
           <img
-            src={`https://playrun-product-api.vercel.app/${imageUrl}`}
+            src={url}
             alt="product"
             name="image"
             className="w-[284px] h-[284px] object-contains "

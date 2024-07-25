@@ -18,7 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     const renderProductsList = async () => {
-      const url = "https://playrun-product-api.vercel.app/api/products";
+      const url = "https://playrun-product-api.onrender.com/api/products/";
 
       const response = await axios.get(url);
       const data = response.data;

@@ -19,18 +19,18 @@ const Banners = () => {
         "
         >
           <div className="flex flex-col ">
-            <h3 className="text-3xl font-poppins font-semibold pl-16 pt-5 z-10">
+            <h3 className="text-3xl font-poppins font-semibold pl-8 md:pl-16 pt-5 z-10">
               Play<span className="text-green-500">Run</span>
             </h3>
-            <h1 className="text-6xl md:text-8xl max-sm-text-sm pl-16 mb-4 font-roboto font-bold z-10">
+            <h1 className="text-6xl md:text-8xl max-sm-text-sm pl-8 md:pl-16 mb-4 font-roboto font-bold z-10">
               GOOD <span className="text-green-500">FIT</span> <br />
               <span className="text-green-500">BODY</span> FIT
             </h1>
-            <div className="z-10 pl-16 flex items-center gap-3">
+            <div className="z-10 pl-8 md:pl-16 flex items-center gap-3">
               <p className=" font-poppins font-medium">Made of combed cotton</p>
               <GiCottonFlower />
             </div>
-            <p className="pl-16 w-[422px] md:w-[545px] font-roboto mt-3">
+            <p className="pl-8 md:pl-16 w-[322px] md:w-[545px] font-roboto mt-3">
               These classic Innerwears comes with double layered contoured pouch
               with its label free and super soft fell, it`s provides full day
               comfort
